@@ -1,0 +1,185 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&display=swap");
+
+* {
+  /* border: 1px solid red; */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Barlow Semi Condensed", sans-serif;
+}
+
+:root {
+  --moderate-violet: hsl(263, 55%, 52%);
+  --light-violet: hsl(263, 55%, 62%);
+  --very-dark-grayish-blue: hsl(217, 19%, 35%);
+  --very-dark-blackish-blue: hsl(219, 29%, 14%);
+  --white: hsl(0, 0%, 100%);
+  --light-gray: hsl(0, 0%, 81%);
+  --light-grayish-blue: hsl(210, 46%, 95%);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  height: 100%;
+  background: var(--light-grayish-blue);
+}
+@media only screen and (max-width: 600px) {
+  body {
+    align-items: start;
+  }
+}
+
+.container {
+  display: grid;
+  grid-template-areas:
+    "card-1 card-1 card-1 card-1 card-2 card-3"
+    "card-4 card-5 card-5 card-5 card-5 card-3";
+  grid-gap: 25px;
+  width: 1100px;
+  max-width: 90%;
+}
+@media only screen and (max-width: 600px) {
+  .container {
+    grid-template-areas:
+      "card-1"
+      "card-2"
+      "card-4"
+      "card-5"
+      "card-3";
+    margin: 50px 0;
+  }
+}
+
+.card {
+  padding: 20px 30px;
+  border-radius: 10px;
+  box-shadow: 0 10px 10px 0 rgba(33, 33, 33, 0.2);
+  transition: box-shadow 0.3s;
+  cursor: default;
+}
+
+.card:hover {
+  box-shadow: 0 20px 20px 0 rgba(33, 33, 33, 0.4);
+}
+
+.card-1 {
+  position: relative;
+  background: var(--moderate-violet);
+  grid-area: card-1;
+}
+
+.card-2 {
+  background: var(--very-dark-grayish-blue);
+  grid-area: card-2;
+}
+
+.card-3 {
+  background: var(--white);
+  grid-area: card-3;
+}
+
+.card-4 {
+  background: var(--white);
+  grid-area: card-4;
+}
+
+.card-5 {
+  background: var(--very-dark-blackish-blue);
+  grid-area: card-5;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  right: 12%;
+  z-index: -1;
+}
+
+.profile {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.profile-avatar {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  margin-right: 15px;
+}
+
+.avatar-image,
+.avatar-overlay {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.avatar-image {
+  object-fit: cover;
+  object-position: center;
+}
+
+.avatar-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 2px solid var(--light-violet);
+}
+
+.user-name {
+  color: var(--light-gray);
+  font-size: 0.8rem;
+}
+
+.user-title {
+  color: hsla(0, 0%, 100%, 0.4);
+  font-size: 0.8rem;
+}
+
+.review-summary {
+  color: var(--light-gray);
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+  margin: 15px 0;
+}
+
+.review-full {
+  font-size: 0.8rem;
+  line-height: 1.2rem;
+  color: hsla(0, 0%, 100%, 0.4);
+}
+
+.card-2 .avatar-overlay,
+.card-3 .avatar-overlay,
+.card-4 .avatar-overlay {
+  border: none;
+}
+
+.card-5 .avatar-overlay {
+  border: 2px solid var(--moderate-violet);
+}
+
+.card-3 .user-name,
+.card-4 .user-name {
+  color: var(--very-dark-blackish-blue);
+}
+
+.card-3 .user-title,
+.card-4 .user-title {
+  color: var(--light-gray);
+}
+
+.card-3 .review-summary,
+.card-4 .review-summary {
+  color: var(--very-dark-blackish-blue);
+}
+
+.card-3 .review-full,
+.card-4 .review-full {
+  color: var(--very-dark-grayish-blue);
+}
